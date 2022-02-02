@@ -10,7 +10,5 @@
 </header>
 
 <section id="main">
-  <!-- This is from the home component -->
-  <app-home (onYell)="yell($event)">New content?</app-home>
-  <app-home [coolPerson]="coolPerson"></app-home>
+  <router-outlet></router-outlet>
 </section>
