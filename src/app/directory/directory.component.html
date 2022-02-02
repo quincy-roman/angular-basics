@@ -1,1 +1,11 @@
-<p>{{ninja}}</p>
+<!-- ngClass can be used with HTML classes dynamically. You can either make an
+object in the html or load it from the respective .ts file -->
+<p [ngClass]="classes">directory works!</p>
+
+<p *ngIf="test">Only show if test is true</p>
+
+<style>
+    .blue{color: blue;}
+    .red{color: red;}
+    .underline{text-decoration: underline;}
+</style>
