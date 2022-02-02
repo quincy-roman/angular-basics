@@ -1,11 +1,14 @@
-<!-- ngClass can be used with HTML classes dynamically. You can either make an
-object in the html or load it from the respective .ts file -->
-<p [ngClass]="classes">directory works!</p>
-
-<p *ngIf="test">Only show if test is true</p>
-
-<style>
-    .blue{color: blue;}
-    .red{color: red;}
-    .underline{text-decoration: underline;}
-</style>
+<h2>Ninja Listing</h2>
+<form id="filter">
+    <label>Filter Ninjas By Name</label>
+    <input type="text" id="term" [(ngModel)]="term" [ngModelOptions]="{standalone: true}">
+</form>
+<ul id="ninja-listing">
+    <li *ngFor='let ninja of ninjas | filter:term'>
+        <div class="single-ninja">
+            <span [ngStyle]="{background: ninja.belt}">{{ninja.belt}} Belt</span>
+            <h3>{{ninja.name | uppercase}}</h3>
+            <!-- <div (click)="remove($event)" [attr.data-name]="ninja.name">Delete</div> -->
+        </div>
+    </li>
+</ul>
