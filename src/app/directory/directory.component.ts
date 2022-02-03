@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { LoggingService } from '../logging.service';
 
 @Component({
   selector: 'app-directory',
   templateUrl: './directory.component.html',
-  styleUrls: ['./directory.component.css'],
+  styleUrls: ['./directory.component.css']
 })
 export class DirectoryComponent implements OnInit {
 
@@ -15,7 +15,7 @@ export class DirectoryComponent implements OnInit {
   ]
   term = undefined
 
-  constructor() {
+  constructor(private logger: LoggingService) {
   }
 
   ngOnInit(): void {
@@ -23,6 +23,10 @@ export class DirectoryComponent implements OnInit {
 
   remove(event: MouseEvent){
     alert('hi')
+  }
+
+  logIt(){
+    this.logger.log()
   }
 
 }
