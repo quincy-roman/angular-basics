@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
 import { LoggingService } from '../logging.service';
 
 @Component({
@@ -8,24 +9,22 @@ import { LoggingService } from '../logging.service';
 })
 export class DirectoryComponent implements OnInit {
 
-  ninjas = [
-    {name: 'Yoshi', belt: 'red'},
-    {name: 'Crystal', belt: 'purple'},
-    {name: 'Ryu', belt: 'black'}
-  ]
+  ninjas: Object = []
   term = undefined
 
-  constructor(private logger: LoggingService) {
+  constructor(private logger: LoggingService, private dataService: DataService) {
   }
 
   ngOnInit(): void {
+    // The Observable will automatically convert JSON to an Object
+    this.dataService.fetchData().subscribe(data => this.ninjas = data)
   }
 
-  remove(event: MouseEvent){
+  remove(event: MouseEvent) {
     alert('hi')
   }
 
-  logIt(){
+  logIt() {
     this.logger.log()
   }
 
