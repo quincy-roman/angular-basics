@@ -11,21 +11,22 @@ export class DirectoryComponent implements OnInit {
 
   ninjas: Object = []
   term = undefined
+  name = ''
+  belt = ''
 
   constructor(private logger: LoggingService, private dataService: DataService) {
   }
 
   ngOnInit(): void {
-    // The Observable will automatically convert JSON to an Object
-    this.dataService.fetchData().subscribe(data => this.ninjas = data)
+    this.fbGetData()
   }
 
-  remove(event: MouseEvent) {
-    alert('hi')
+  fbGetData() {
+    this.dataService.getData(this.ninjas)
   }
 
-  logIt() {
-    this.logger.log()
+  fbPostData(name: string, belt: string) {
+    this.dataService.pushData(name, belt)
   }
 
 }

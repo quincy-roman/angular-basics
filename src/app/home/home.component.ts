@@ -15,8 +15,4 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  logIt(){
-    this.logger.log()
-  }
-
 }
