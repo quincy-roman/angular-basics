@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../data.service';
-import { LoggingService } from '../logging.service';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-directory',
@@ -14,8 +13,7 @@ export class DirectoryComponent implements OnInit {
   name = ''
   belt = ''
 
-  constructor(private logger: LoggingService, private dataService: DataService) {
-  }
+  constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
     this.fbGetData()

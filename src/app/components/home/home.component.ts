@@ -1,5 +1,4 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { LoggingService } from '../logging.service';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +9,7 @@ export class HomeComponent implements OnInit {
 
   title: string = "Welcome to the homepage!"
 
-  constructor(private logger: LoggingService) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
